@@ -1,0 +1,9 @@
+# Edit the following values
+
+atem:
+  IP: 
+  # Most atem devices by default use port 9910 as UDP (not TCP)
+  port: 
+
+twitch:
+  appID: 

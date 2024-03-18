@@ -1,0 +1,5 @@
+*.bat
+
+config/debug.yaml
+
+node_modules/
