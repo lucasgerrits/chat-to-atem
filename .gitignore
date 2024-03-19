@@ -3,3 +3,5 @@
 config/debug.yaml
 
 node_modules/
+
+prod/
