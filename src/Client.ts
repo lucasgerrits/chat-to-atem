@@ -17,7 +17,7 @@ export class Client {
     }
 
     private readConfig(fileName: string): YamlConfig {
-        const yamlContents: string = fs.readFileSync(`./../config/${fileName}`, "utf-8");
+        const yamlContents: string = fs.readFileSync(`./config/${fileName}`, "utf-8");
         return YAML.parse(yamlContents);
     }
 }
