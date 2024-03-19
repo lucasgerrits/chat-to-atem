@@ -1,6 +1,8 @@
-import { Atem } from "atem-connection";
+import { Atem, DEFAULT_PORT } from "atem-connection";
+import { Util } from "./Util";
 import { MacroPropertiesState } from "atem-connection/dist/state/macro";
 import type { AtemConfig } from "./types/yamlTypes";
+
 
 export class ExtendedAtem extends Atem {
     private macros: Array<MacroPropertiesState | undefined> = [];
@@ -9,13 +11,16 @@ export class ExtendedAtem extends Atem {
 
     constructor(config: AtemConfig) {
         super();
-
+        
         this.deviceIP = config.IP;
-        const defaultUDP: number = 9910;
-        this.devicePort = config.port ?? defaultUDP;
-        this.connect(config.IP, config.port);
+        this.devicePort = config.port ?? DEFAULT_PORT;
 
         this.registerEventHandlers();
+
+        this.connect(config.IP, config.port).catch((e) => {
+            console.error(e)
+            process.exit(0)
+        })
     }
 
     private getUsableMacros(): void {
@@ -25,15 +30,19 @@ export class ExtendedAtem extends Atem {
         }
     }
 
-    private async registerEventHandlers(): Promise<void> {
+    private registerEventHandlers(): void {
         this.on("connected", async () => {
-            console.log(`Connected to: ${this.deviceIP}:${this.devicePort}`);
+            console.log("Connected to device.");
 
             this.getUsableMacros();
+
+            await Util.sleep(1000);
+            this.setInput(1);
         });
 
         this.on("disconnected", async () => {
-            console.log("Disconnected");
+            console.log("Disconnected from device.");
+	        process.exit(0)
         });
         
         this.on("stateChanged", (state, pathToChange) => {
@@ -42,9 +51,13 @@ export class ExtendedAtem extends Atem {
 
         this.on("error", console.error);
 
-        // this.on("info", console.log);
+        this.on("info", console.log);
     }
     
+    public async setInput(input: number): Promise<void> {
+        this.changeProgramInput(input);
+    }
+
     public async runMacro(identifier: number | string): Promise<void> {
         let index: number = 0;
         if (typeof identifier === "number") {
