@@ -1,8 +1,10 @@
 # chat-to-atem
 
-Bridges the gap between Twitch chat and ATEM devices. Cheer and redemption triggers can be set to activate macros.
+Bridges the gap between Twitch chat and Blackmagic ATEM devices.
 
-Created for [https://www.twitch.tv/mitmat4d](https://www.twitch.tv/mitmat4d)
+Cheer and redemption triggers can be set to activate macros.
+
+Created for: [mitmat4d](https://www.twitch.tv/mitmat4d)
 
 ## Consumes
 
