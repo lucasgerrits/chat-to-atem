@@ -6,4 +6,6 @@ atem:
   port: 
 
 twitch:
-  appID: 
+  clientId: 
+  clientSecret: 
+  redirectUri: http://localhost

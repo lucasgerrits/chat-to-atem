@@ -9,5 +9,7 @@ export type AtemConfig = {
 }
 
 export type TwitchConfig = {
-    appID: string,
+    clientId: string,
+    clientSecret: string,
+    redirectUri: string,
 }
