@@ -3,6 +3,7 @@
     "dependencies": {
         "@twurple/api": "^7.0.10",
         "@twurple/auth": "^7.0.10",
+        "@twurple/chat": "^7.1.0",
         "@twurple/eventsub-ws": "^7.0.10",
         "atem-connection": "^3.5.0",
         "yaml": "^2.4.1"
