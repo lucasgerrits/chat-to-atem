@@ -16,7 +16,7 @@ Created for: [mitmat4d](https://www.twitch.tv/mitmat4d)
 
 ## Contact
 
-[Twitter](https://twitter.com/carefreeb0mb)
+[Email](mailto:lucasjgerrits@gmail.com)
 
 [Twitch](https://www.twitch.tv/carefreebomb)
 
